@@ -26,5 +26,9 @@ private:
 	GLuint m_cubeIBO = 0;
 	GLuint m_cubeVAO = 0;
 
+	GLint uModelViewProjectionMatrix;
+	GLint uModelViewMatrix;
+	GLint uNormalMatrix;
+
 	glmlv::GLProgram m_program;
 };
