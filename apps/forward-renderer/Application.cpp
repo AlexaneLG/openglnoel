@@ -149,7 +149,13 @@ Application::Application(int argc, char** argv) :
 		glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, imageMaquia.width(), imageMaquia.height(), GL_RGBA, GL_UNSIGNED_BYTE, imageMaquia.data()); // specify a two-dimensional texture subimage
 	}
 
-	//glmlv::loadObjScene(const glmlv::fs::path & objPath, glmlv::SceneData & data);
+	//glmlv::SceneData data;
+	//glmlv::loadObjScene(glmlv::fs::path{ argv[1] }, data);
+
+	//const auto sceneDiagonalSize = glm::length(data.bboxMax - data.bboxMin);
+	//m_viewController.setSpeed(sceneDiagonalSize * 0.1f); // 10% de la scene parcourue par seconde
+	
+	//const auto projMatrix = glm::perspective(70.f, float(viewportSize.x) / viewportSize.y, 0.01f * m_SceneSize, m_SceneSize); // near = 1% de la taille de la scene, far = 100%
 
 	const GLint vboBindingIndex = 0; // Arbitrary choice between 0 and glGetIntegerv(GL_MAX_VERTEX_ATTRIB_BINDINGS)
 

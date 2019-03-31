@@ -4,6 +4,7 @@
 #include <glmlv/ViewController.hpp>
 #include <glmlv/simple_geometry.hpp>
 #include <glmlv/Image2DRGBA.hpp>
+#include <glmlv/scene_loading.hpp>
 
 class Application
 {
@@ -67,4 +68,16 @@ private:
     float m_DirLightThetaAngleDegrees = 45.f;
     glm::vec3 m_DirLightDirection = computeDirectionVector(glm::radians(m_DirLightPhiAngleDegrees), glm::radians(m_DirLightThetaAngleDegrees));
 	*/
+
+	// Required data about the scene in CPU in order to send draw calls
+	struct ShapeInfo
+	{
+		uint32_t indexCount; // Number of indices
+		uint32_t indexOffset; // Offset in GPU index buffer
+		int materialID = -1;
+		glm::mat4 localToWorldMatrix;
+	};
+
+	std::vector<ShapeInfo> m_shapes; // For each shape of the scene, its number of indices
+	float m_SceneSize = 0.f; // Used for camera speed and projection matrix parameters
 };
